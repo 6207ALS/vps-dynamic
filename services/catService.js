@@ -21,7 +21,7 @@ async function getAll() {
 }
 
 async function createCat(age) {
-	let res = await query(`INSERT INTO cat (age) VALUES ($1)`, [age])
+	let res = await query(`INSERT INTO cat (age) VALUES ($1);`, [age])
 	return res.rows;
 }
 
