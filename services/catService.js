@@ -2,7 +2,11 @@ const { Client } = require('pg');
 
 async function query(statement, values) {
 	const client = new Client({
-		database: 'cats'
+		user: '6207als',
+  	host: '/var/run/postgresql',
+  	database: 'cats',
+  	password: process.env.POSTGRES_PASSWORD,
+  	port: 5432,
 	});
 	await client.connect()
 	let res = await client.query(statement, values || [])
