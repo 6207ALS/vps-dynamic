@@ -16,25 +16,25 @@ async function query(statement, values) {
 }
 
 async function getAll() {
-	let res = await query("SELECT * FROM cats;")
+	let res = await query("SELECT * FROM cat;")
 	return res.rows
 }
 
 async function createCat(age) {
-	let res = await query(`INSERT INTO cats (age) VALUES ($1)`, [age])
+	let res = await query(`INSERT INTO cat (age) VALUES ($1)`, [age])
 	return res.rows
 }
 
 async function updateCat(catId, catAge) {
 	await query(`
-	UPDATE cats 
+	UPDATE cat 
 	SET age = $1
 	WHERE id = $2;
 	`, [catAge, catId])
 }
 
 async function deleteCat(catId) {
-	await query(`DELETE FROM cats WHERE id = $1;`, [catId])
+	await query(`DELETE FROM cat WHERE id = $1;`, [catId])
 }
 
 module.exports = {
