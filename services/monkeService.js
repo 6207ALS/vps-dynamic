@@ -1,5 +1,4 @@
-const Monke = require(__dirname + "/monke.js")
-
+const Monke = require(__dirname + "/../models/monke.js")
 
 async function getAll() {
 	return await Monke.find({});
