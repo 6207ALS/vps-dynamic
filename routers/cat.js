@@ -7,7 +7,7 @@ catRouter.get("/", async (req, res) => {
 
 catRouter.post("/", async (req, res) => {
 	let catAge = req.body.age
-	res.json(await catService.createCat(catAge));
+	res.status(201).json(await catService.createCat(catAge));
 });
 
 catRouter.put("/:id", async (req, res) => {
